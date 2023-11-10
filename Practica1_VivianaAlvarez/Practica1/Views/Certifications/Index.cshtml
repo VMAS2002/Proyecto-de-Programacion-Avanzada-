@@ -1,0 +1,54 @@
+﻿@model List<string>
+
+
+<div class="text-center">
+    <h1 class="display-4">Certificaciones José Perez</h1>
+</div>
+
+<style>
+
+    table, th, td {
+        border: 1px solid #3498DB;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #3498DB;
+        color: white;
+    }
+
+    td {
+        background-color: #D6EAF8;
+    }
+
+</style>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Certificación</th>
+            <th>Fecha de Expiración</th>
+            <th>Descargar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var certification in Model)
+        {
+            <tr>
+
+              
+                <td>@certification</td>
+                <td>15-19-2025</td>
+                <td><a href="@Url.Action("DownloadCertification", new { certificationName = certification })">Descargar</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("ViewMoreCertifications")">Ver más certificaciones</a>
